@@ -190,7 +190,8 @@ function loveframes.skins.ReloadImages(name)
 	if skin and indeximages then
 		local basedir = loveframes.config["DIRECTORY"]
 		local imagedir = skin.imagedir or basedir .. "/skins/" ..name.. "/images"
-		local dircheck = love.filesystem.isDirectory(imagedir)
+		local dircheck = love.filesystem.getInfo(imagedir)
+		dircheck = dircheck and dircheck.type == "directory"
 		if dircheck then
 			local images = loveframes.util.GetDirectoryContents(imagedir)
 			for k, v in ipairs(images) do

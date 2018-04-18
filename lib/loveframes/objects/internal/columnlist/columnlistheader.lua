@@ -100,7 +100,7 @@ function newobject:update(dt)
 	local resizecolumn = parent.resizecolumn
 	
 	if resizecolumn and resizecolumn == self then
-		local x, y = love.mouse.getPosition()
+		local x, y = loveframes.MouseGetPosition()
 		local start = false
 		self.width = x - self.x
 		if self.width < 20 then

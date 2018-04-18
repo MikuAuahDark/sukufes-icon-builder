@@ -112,7 +112,7 @@ function newobject:update(dt)
 		end
 	end
 	
-	local mx, my = love.mouse.getPosition()
+	local mx, my = loveframes.MouseGetPosition()
 	local showclose = self.showclose
 	local close = self.internals[1]
 	local dragging = self.dragging
@@ -325,8 +325,8 @@ function newobject:update(dt)
 	if screenlocked then
 		local width = self.width
 		local height = self.height
-		local screenwidth = love.graphics.getWidth()
-		local screenheight = love.graphics.getHeight()
+		local screenwidth = loveframes.GetWidth()
+		local screenheight = loveframes.GetHeight()
 		local x = self.x
 		local y = self.y
 		if x < 0 then

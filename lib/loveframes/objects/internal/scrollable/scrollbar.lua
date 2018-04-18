@@ -68,7 +68,7 @@ function newobject:update(dt)
 	
 	self:CheckHover()
 	
-	local x, y     = love.mouse.getPosition()
+	local x, y     = loveframes.MouseGetPosition()
 	local bartype  = self.bartype
 	local cols     = {}
 	local basecols = {}

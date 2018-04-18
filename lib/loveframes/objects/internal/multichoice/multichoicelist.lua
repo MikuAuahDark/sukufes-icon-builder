@@ -75,9 +75,9 @@ function newobject:update(dt)
 		end
 	end
 	
-	local width = love.graphics.getWidth()
-	local height = love.graphics.getHeight()
-	local x, y = love.mouse.getPosition()
+	local width = loveframes.GetWidth()
+	local height = loveframes.GetHeight()
+	local x, y = loveframes.MouseGetPosition()
 	local selfcol = loveframes.util.BoundingBox(x, self.x, y, self.y, 1, self.width, 1, self.height)
 	local parent = self.parent
 	local base = loveframes.base
@@ -338,8 +338,8 @@ function newobject:CalculateSize()
 		end
 	end
 
-	if self.height > love.graphics.getHeight() then
-		self.height = love.graphics.getHeight()
+	if self.height > loveframes.GetHeight() then
+		self.height = loveframes.GetHeight()
 	end
 	
 	local numitems = #self.children

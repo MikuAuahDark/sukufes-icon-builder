@@ -2,8 +2,10 @@
 	-- Love Frames - A GUI library for LOVE --
 	-- Copyright (c) 2012-2014 Kenny Shields --
 --]]------------------------------------------------
+-- Modified to be integrated to Live Simulator: 2
 
 local path = ...
+local love = require("love")
 require(path .. ".libraries.util")
 require(path .. ".libraries.skins")
 require(path .. ".libraries.templates")
@@ -23,7 +25,7 @@ loveframes.config["ACTIVESKIN"] = "Snap"
 loveframes.config["INDEXSKINIMAGES"] = true
 loveframes.config["DEBUG"] = false
 loveframes.config["ENABLE_SYSTEM_CURSORS"] = true
-loveframes.config["ENABLE_UTF8_SUPPORT"] = true
+loveframes.config["ENABLE_UTF8_SUPPORT"] = false
 
 -- misc library vars
 loveframes.state = "none"
@@ -182,20 +184,14 @@ end
 function loveframes.draw()
 
 	local base = loveframes.base
-	local r, g, b, a = love.graphics.getColor()
-	local font = love.graphics.getFont()
+	love.graphics.push("all")
 	
 	base:draw()
 	
 	loveframes.drawcount = 0
 	loveframes.debug.draw()
 	
-	love.graphics.setColor(r, g, b, a)
-	
-	if font then
-		love.graphics.setFont(font)
-	end
-	
+	love.graphics.pop()
 end
 
 --[[---------------------------------------------------------
@@ -434,6 +430,14 @@ function loveframes.GetState()
 	return loveframes.state
 	
 end
+
+--[[---------------------------------------------------------
+	- Custom functions for Live Simulator: 2 integration
+--]]---------------------------------------------------------
+loveframes.GetWidth = love.graphics.getWidth
+loveframes.GetHeight = love.graphics.getHeight
+loveframes.GetDimensions = love.graphics.getDimensions
+loveframes.MouseGetPosition = love.mouse.getPosition
 
 -- create a list of gui objects, skins and templates
 local objects = loveframes.util.GetDirectoryContents(dir .. "/objects")

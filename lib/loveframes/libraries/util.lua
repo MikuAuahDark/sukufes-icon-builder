@@ -54,7 +54,7 @@ end
 --]]---------------------------------------------------------
 function loveframes.util.GetCollisions(object, t)
 
-	local x, y = love.mouse.getPosition()
+	local x, y = loveframes.MouseGetPosition()
 	local curstate = loveframes.state
 	local object = object or loveframes.base
 	local visible = object.visible

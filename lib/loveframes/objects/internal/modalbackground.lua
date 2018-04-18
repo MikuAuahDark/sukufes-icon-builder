@@ -17,8 +17,8 @@ local newobject = loveframes.NewObject("modalbackground", "loveframes_object_mod
 function newobject:initialize(object)
 	
 	self.type = "modalbackground"
-	self.width = love.graphics.getWidth()
-	self.height = love.graphics.getHeight()
+	self.width = loveframes.GetWidth()
+	self.height = loveframes.GetHeight()
 	self.x = 0
 	self.y = 0
 	self.internal = true

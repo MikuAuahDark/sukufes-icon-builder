@@ -3,6 +3,7 @@
 	-- Copyright (c) 2012-2014 Kenny Shields --
 --]]------------------------------------------------
 
+local love = require("love")
 -- get the current require path
 local path = string.sub(..., 1, string.len(...) - string.len(".objects.collapsiblecategory"))
 local loveframes = require(path .. ".libraries.common")

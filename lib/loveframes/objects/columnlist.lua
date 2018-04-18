@@ -115,7 +115,6 @@ function newobject:draw()
 		return
 	end
 	
-	local stencilfunc
 	local vbody = self.internals[1]:GetVerticalScrollBody()
 	local hbody = self.internals[1]:GetHorizontalScrollBody()
 	local width = self.width

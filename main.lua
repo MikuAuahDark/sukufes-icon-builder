@@ -1,6 +1,7 @@
 local love = require 'love'
-loveframes 	= require 'lib.loveframes'
-assets		= require('lib.cargo').init('assets')
+loveframes = require 'lib.loveframes'
+assets = require('lib.cargo').init('assets')
+FileSelection = require 'FileDialog'
 
 sWidth 	= love.graphics.getWidth() 
 sHeight = love.graphics.getHeight()
@@ -23,11 +24,13 @@ local idol_state
 
 local message = [[
 	SukuFes Icon Builder by -Nitrous (https://osu.ppy.sh/u/7293512)
-	for use with osu! mania skin: https://osu.ppy.sh/forum/t/539048
+	Modified by MikuAuahDark (https://twitter.com/MikuAuahDark) for Live Simulator: 2
+	Original version can be found in https://github.com/LeNitrous/sukufes-icon-builder
 	Thanks for using!
 ]]
 
 function love.load()
+	assert(love.filesystem.createDirectory("unit_icon"))
 	love.graphics.setBackgroundColor(35/255, 42/255, 50/255, 1)
 	
 	canvas = love.graphics.newCanvas(sWidth, sHeight, {format = "rgba8"})
@@ -35,14 +38,11 @@ function love.load()
 	
 	DrawInterface()
 	
-	love.filesystem.write('credits.txt', message)
-	
 	bg			= assets.images.bg_R_smile
 	border		= assets.images.ring_R_smile
 	idol		= love.graphics.newImage("assets/images/default.png", {mipmaps = true})
 	idol_bg 	= "smile"
 	idol_ring 	= "smile"
-	idol:setMipmapFilter("linear")
 end
 
 function love.update(dt)
@@ -67,7 +67,7 @@ function love.update(dt)
 	bg		= back[idol_bg_type][idol_state][idol_attr]
 	border	= ring[idol_ring_type][idol_attr]
 	
-	loveframes.update(dt)
+	return loveframes.update(dt)
 end
 
 function love.draw()	
@@ -87,15 +87,25 @@ function love.mousemoved(x, y, dx, dy)
 end
 
 function love.filedropped(f)
-	local lgn = love.graphics.newImage
-	
-	success, img = pcall(lgn, f, {mipmaps = true})
+	local success, img = pcall(love.graphics.newImage, f, {mipmaps = true})
 	idol = success and img or idol
 	loaded_image = f:getFilename()
 	loaded_timer = 3
 end
 
 function love.mousepressed(x, y, b, isTouch)
+	if FileSelection and x >= 321 and y >= sHeight/2-64 and x < 449 and y < sHeight/2+64 then
+		local file = FileSelection("Open Idol", nil, "*.png;*.jpg;*.jpeg;*.bmp")
+		if file then
+			local f = assert(io.open(file, "rb"))
+			local data = love.filesystem.newFileData(f:read("*a"), "")
+			local success, img = pcall(love.graphics.newImage, data, {mipmaps = true})
+			idol = success and img or idol
+			loaded_image = file
+			loaded_timer = 3
+		end
+	end
+
 	return loveframes.mousepressed(x, y, b)
 end
 

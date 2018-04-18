@@ -17,8 +17,8 @@ local newobject = loveframes.NewObject("base", "loveframes_object_base")
 function newobject:initialize()
 	
 	-- width and height of the window
-	local w = love.graphics.getWidth()
-	local h = love.graphics.getHeight()
+	local w = loveframes.GetWidth()
+	local h = loveframes.GetHeight()
 	
 	self.type = "base"
 	self.width = w
@@ -42,7 +42,7 @@ function newobject:update(dt)
 		return
 	end
 	
-	local width, height = love.graphics.getDimensions()
+	local width, height = loveframes.GetDimensions()
 	
 	if self.width ~= width then
 		self.width = width
@@ -452,8 +452,8 @@ function newobject:Center()
 	local parent = self.parent
 	
 	if parent == base then
-		local width = love.graphics.getWidth()
-		local height = love.graphics.getHeight()
+		local width = loveframes.GetWidth()
+		local height = loveframes.GetHeight()
 		self.x = width/2 - self.width * (self.scalex or 1)/2
 		self.y = height/2 - self.height * (self.scaley or 1)/2
 	else
@@ -477,7 +477,7 @@ function newobject:CenterX()
 	local parent = self.parent
 	
 	if parent == base then
-		local width = love.graphics.getWidth()
+		local width = loveframes.GetWidth()
 		self.x = width/2 - self.width * (self.scalex or 1)/2
 	else
 		local width = parent.width
@@ -498,7 +498,7 @@ function newobject:CenterY()
 	local parent = self.parent
 	
 	if parent == base then
-		local height = love.graphics.getHeight()
+		local height = loveframes.GetHeight()
 		self.y = height/2 - self.height * (self.scaley or 1)/2
 	else
 		local height = parent.height
@@ -784,7 +784,7 @@ end
 --]]---------------------------------------------------------
 function newobject:InClickBounds()
 
-	local x, y = love.mouse.getPosition()
+	local x, y = loveframes.MouseGetPosition()
 	local bounds = self.clickbounds
 	
 	if bounds then
@@ -828,7 +828,7 @@ function newobject:CheckHover()
 	local y = self.y
 	local width = self.width
 	local height = self.height
-	local mx, my = love.mouse.getPosition()
+	local mx, my = loveframes.MouseGetPosition()
 	local selfcol = loveframes.util.BoundingBox(mx, x, my, y, 1, width, 1, height)
 	local collisioncount = loveframes.collisioncount
 	local curstate = loveframes.state

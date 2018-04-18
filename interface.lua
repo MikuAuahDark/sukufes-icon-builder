@@ -6,6 +6,10 @@ local pScaling		= { x = 5, y = 285, oy = 18 }
 local pToggles		= { x = 5, y = 335 }
 local pButton		= { x = 5, y = 360 }
 
+local function unpremultiply(x, y, r, g, b, a)
+	return r/a, g/a, b/a, a
+end
+
 function DrawInterface()
 	local m_Text = loveframes.Create("text")
 	m_Text:SetText("Ring")
@@ -60,7 +64,7 @@ function DrawInterface()
 	i_Text:SetPos(pOutput.x, pOutput.y)
 	
 	i_Box = loveframes.Create("textinput")
-	i_Box:SetText("idolu")
+	--i_Box:SetText("idolu")
 	i_Box:SetPos(pOutput.x, pOutput.y + pOutput.oy)
 	
 	local i_XText = loveframes.Create("text")
@@ -105,8 +109,28 @@ function DrawInterface()
 	b_Create:SetPos(pButton.x, pButton.y)
 	b_Create:SetSize(200, 30)
 	b_Create.OnClick = function(object)
-		love.system.openURL("file://"..love.filesystem.getSaveDirectory())
-		canvas:newImageData(0, 1, 330/2+220-64, sHeight/2-64, 128,128):encode("png", i_Box:GetText() ..".png")
+		--love.system.openURL("file://"..love.filesystem.getSaveDirectory())
+		local name = string.format("unit_icon/%s.png", i_Box:GetText())
+		if love.filesystem.getInfo(name) then
+			-- Prompt before overwrite.
+			local b = love.window.showMessageBox(
+				"File Exists",
+				string.format("File named %s exist. Overwrite?", name:sub(11)),
+				{"Yes", "No", escapebutton = 2, enterbutton = 1},
+				"warning"
+			)
+
+			if b == 2 then
+				-- Don't overwrite
+				return
+			end
+		end
+
+		-- Overwrite
+		local img = canvas:newImageData(0, 1, 330/2+220-64, sHeight/2-64, 128,128)
+		img:mapPixel(unpremultiply)
+		img:encode("png", name)
+		love.window.showMessageBox("Success", "Icon created. "..name:sub(11))
 	end
 end
 

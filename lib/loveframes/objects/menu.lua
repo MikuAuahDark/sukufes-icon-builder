@@ -95,8 +95,8 @@ function newobject:update(dt)
 	self.largest_item_width = 0
 	self.largest_item_height = 0
 	
-	local screen_width = love.graphics.getWidth()
-	local screen_height = love.graphics.getHeight()
+	local screen_width = loveframes.GetWidth()
+	local screen_height = loveframes.GetHeight()
 	local sx = self.x
 	local sy = self.y
 	local width = self.width

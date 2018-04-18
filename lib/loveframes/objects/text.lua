@@ -106,7 +106,7 @@ function newobject:update(dt)
 		for k, v in ipairs(formattedtext) do
 			local link = v.link
 			if link then
-				local mx, my = love.mouse.getPosition()
+				local mx, my = loveframes.MouseGetPosition()
 				local font = v.font
 				local linkx = v.x
 				local linky = v.y
