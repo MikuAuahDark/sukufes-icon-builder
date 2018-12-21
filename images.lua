@@ -1,79 +1,79 @@
-local i = assets.images
+local i = assets.image.unit_icon
 
 back = {
 	N = {
 		default = {
-			all		= i.bg_N_all,
-			cool	= i.bg_N_cool,
-			pure	= i.bg_N_pure,
-			smile	= i.bg_N_smile
+			all		= i.b_all_N_001,
+			cool	= i.b_cool_N_001,
+			pure	= i.b_pure_N_001,
+			smile	= i.b_smile_N_001
 		},
 		idolized = {
-			all		= i.bg_N_all,
-			cool	= i.bg_N_cool_idolized,
-			pure	= i.bg_N_pure_idolized,
-			smile	= i.bg_N_smile_idolized
+			all		= i.b_all_N_001,
+			cool	= i.b_cool_N_002,
+			pure	= i.b_pure_N_002,
+			smile	= i.b_smile_N_002
 		}
 	},
 	R = {
 		default = {
-			all		= i.bg_R_all,
-			cool	= i.bg_R_cool,
-			pure	= i.bg_R_pure,
-			smile	= i.bg_R_smile
+			all		= i.b_all_R_001,
+			cool	= i.b_cool_R_001,
+			pure	= i.b_pure_R_001,
+			smile	= i.b_smile_R_001
 		},
 		idolized = {
-			all		= i.bg_R_all,
-			cool	= i.bg_R_cool_idolized,
-			pure	= i.bg_R_pure_idolized,
-			smile	= i.bg_R_smile_idolized
+			all		= i.b_all_R_001,
+			cool	= i.b_cool_R_002,
+			pure	= i.b_pure_R_002,
+			smile	= i.b_smile_R_002
 		}
 	},
 	SR = {
 		default = {
-			all		= i.bg_SR_all,
-			cool	= i.bg_SR_cool,
-			pure	= i.bg_SR_pure,
-			smile	= i.bg_SR_smile
+			all		= i.b_all_SR_001,
+			cool	= i.b_cool_SR_001,
+			pure	= i.b_pure_SR_001,
+			smile	= i.b_smile_SR_001
 		},
 		idolized = {
-			all		= i.bg_SR_all,
-			cool	= i.bg_SR_cool_idolized,
-			pure	= i.bg_SR_pure_idolized,
-			smile	= i.bg_SR_smile_idolized
+			all		= i.b_all_SR_001,
+			cool	= i.b_cool_SR_002,
+			pure	= i.b_pure_SR_002,
+			smile	= i.b_smile_SR_002
 		}
 	},
 }
 
 ring = {
 	N = {
-		all		= i.ring_N_all,
-		cool	= i.ring_N_cool,
-		pure	= i.ring_N_pure,
-		smile	= i.ring_N_smile
+		all		= i.f_N_4,
+		cool	= i.f_N_3,
+		pure	= i.f_N_2,
+		smile	= i.f_N_1
 	},
 	R = {
-		all		= i.ring_R_all,
-		cool	= i.ring_R_cool,
-		pure	= i.ring_R_pure,
-		smile	= i.ring_R_smile
+		all		= i.f_R_4,
+		cool	= i.f_R_3,
+		pure	= i.f_R_2,
+		smile	= i.f_R_1
 	},
 	SR = {
-		all		= i.ring_SR_all,
-		cool	= i.ring_SR_cool,
-		pure	= i.ring_SR_pure,
-		smile	= i.ring_SR_smile
+		all		= i.f_SR_4,
+		cool	= i.f_SR_3,
+		pure	= i.f_SR_2,
+		smile	= i.f_SR_1
 	},
 	SSR = {
-		all		= i.ring_SSR_all,
-		cool	= i.ring_SSR_cool,
-		pure	= i.ring_SSR_pure,
-		smile	= i.ring_SSR_smile
+		all		= i.f_SSR_4,
+		cool	= i.f_SSR_3,
+		pure	= i.f_SSR_2,
+		smile	= i.f_SSR_1
 	},
 	UR = {
-		all		= i.ring_UR_all,
-		cool	= i.ring_UR_cool,
-		pure	= i.ring_UR_pure,
-		smile	= i.ring_UR_smile
+		all		= i.f_UR_4,
+		cool	= i.f_UR_3,
+		pure	= i.f_UR_2,
+		smile	= i.f_UR_1
 	}
 }

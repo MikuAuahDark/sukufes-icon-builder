@@ -8,7 +8,7 @@ sHeight = love.graphics.getHeight()
 iWidth	= 128
 iHeight	= 128
 
-font = love.graphics.newFont('assets/fonts/MotoyaLMaru.ttf', 12)
+font = love.graphics.newFont('fonts/MTLmr3m.ttf', 12)
 font:setFilter('nearest', 'nearest')
 
 require 'images'

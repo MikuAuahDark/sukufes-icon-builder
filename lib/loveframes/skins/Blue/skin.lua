@@ -15,8 +15,8 @@ skin.name = "Blue"
 skin.author = "Nikolai Resokav"
 skin.version = "1.0"
 
-local smallfont = love.graphics.newFont("assets/fonts/MotoyaLMaru.ttf", 10)
-local imagebuttonfont = love.graphics.newFont("assets/fonts/MotoyaLMaru.ttf", 15)
+local smallfont = love.graphics.newFont("fonts/MTLmr3m.ttf", 10)
+local imagebuttonfont = love.graphics.newFont("fonts/MTLmr3m.ttf", 15)
 local bordercolor = {143/255, 143/255, 143/255, 1}
 
 -- add skin directives to this table

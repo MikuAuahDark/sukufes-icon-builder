@@ -28,8 +28,8 @@ local pinkcolor  = rgb(1, 122/255, 174/255)
 local whitecolor = rgb(1, 1, 1)
 
 -- fonts
-local smallfont     = love.graphics.newFont("assets/fonts/MotoyaLMaru.ttf", 12)
-local boldfont      = love.graphics.newFont("assets/fonts/MotoyaLMaru.ttf", 12)
+local smallfont     = love.graphics.newFont("fonts/MTLmr3m.ttf", 12)
+local boldfont      = love.graphics.newFont("fonts/MTLmr3m.ttf", 12)
 smallfont:setFilter("nearest", "nearest")
 boldfont:setFilter("nearest", "nearest")
 

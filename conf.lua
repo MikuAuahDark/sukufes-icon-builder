@@ -1,3 +1,7 @@
+if love.filesystem.isFused() and love.filesystem.getInfo("OUTSIDE_ASSET", "file") then
+	assert(love.filesystem.mount(love.filesystem.getSourceBaseDirectory(), ""), "failed to load game directory")
+end
+
 function love.conf(t)
 	-- We need to use "DEPLS" identity to match with livesim2
 	t.identity 	= "DEPLS"
