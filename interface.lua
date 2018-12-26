@@ -127,10 +127,17 @@ function DrawInterface()
 		end
 
 		-- Overwrite
-		local img = canvas:newImageData(0, 1, 330/2+220-64, sHeight/2-64, 128,128)
-		img:mapPixel(unpremultiply)
+		local fboimg = canvas:newImageData(0, 1, 330/2+220-64, sHeight/2-64, 128,128)
+		local img = love.image.newImageData(128, 128)
+		img:mapPixel(function(x, y)
+			-- TODO: Use faster FFI access, getPixel has some mutex overhead
+			local r, g, b, a = fboimg:getPixel(x, y)
+			return r/a, g/a, b/a, a
+		end)
 		img:encode("png", name)
 		love.window.showMessageBox("Success", "Icon created. "..name:sub(11))
+		fboimg:release()
+		img:release()
 	end
 end
 

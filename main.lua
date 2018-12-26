@@ -33,7 +33,8 @@ function love.load()
 	assert(love.filesystem.createDirectory("unit_icon"))
 	love.graphics.setBackgroundColor(35/255, 42/255, 50/255, 1)
 	
-	canvas = love.graphics.newCanvas(sWidth, sHeight, {format = "rgba8"})
+	local fmt = love.graphics.getCanvasFormats()["rgba16f"] and "rgba16f" or "rgba8"
+	canvas = love.graphics.newCanvas(sWidth, sHeight, {format = fmt})
 	canvas:setFilter("linear", "linear")
 	
 	DrawInterface()
